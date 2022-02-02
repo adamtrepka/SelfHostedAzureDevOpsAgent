@@ -1,0 +1,14 @@
+version: "3"
+services:
+  agent:
+    image: dockeragent:latest
+    container_name: azure_devops_agent
+    environment:
+      - AZP_URL=
+      - AZP_TOKEN=
+      - AZP_AGENT_NAME=
+      - AZP_POOL=
+    volumes:
+       - /var/run/docker.sock:/var/run/docker.sock
+    command: ["--privileged"]   
+    restart: always
